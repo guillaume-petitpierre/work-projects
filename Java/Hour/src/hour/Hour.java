@@ -21,7 +21,7 @@ public class Hour {
         int actualMinutes = (int) ((actualTimestamp / 60000) % 60);
         int actualHours = (int) ((actualTimestamp / 3600000) % 24);
         
-        System.out.println(actualHours + ":" + actualMinutes + ":" + actualSeconds);
+        System.out.println(String.format("%02d", actualHours) + ":" + String.format("%02d", actualMinutes) + ":" + String.format("%02d", actualSeconds));
     }
     
 }
