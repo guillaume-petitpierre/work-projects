@@ -55,11 +55,15 @@ void *remplissage(void* args){
 }
 
 void *fuite(void* args){
+    int fuiteColmatee = FALSE;
     struct arg_struct *arguments = (struct arg_struct *)args;
     while((*arguments->content) < BAIGNOIRE_CAPACITY){
-        if((*arguments->content) < BAIGNOIRE_CAPACITY){
+        if((*arguments->content) < BAIGNOIRE_CAPACITY && fuiteColmatee == FALSE){
             (*arguments->content) -= arguments->qty;
             printf("La baignoire se vide. Contenu: %d\n", *arguments->content);
+            if((*arguments->content) <= 0){
+                fuiteColmatee = TRUE;
+            }
             sleep(arguments->time);
         }
     }
