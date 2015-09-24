@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <pthread.h>
 
-#define BAIGNOIRE_CAPACITY 1000
+#define BAIGNOIRE_CAPACITY 100
 
 #define TRUE  1
 #define FALSE 0
@@ -25,12 +25,12 @@ int main()
     struct arg_struct args_r;
     struct arg_struct args_f;
 
-    args_r.qty = 50;
-    args_r.time = 2;
+    args_r.qty = 10;
+    args_r.time = 1;
     args_r.content = baignoireContent;
 
-    args_f.qty = 10;
-    args_f.time = 1;
+    args_f.qty = 20;
+    args_f.time = 3;
     args_f.content = baignoireContent;
 
 
@@ -60,8 +60,12 @@ void *fuite(void* args){
     while((*arguments->content) < BAIGNOIRE_CAPACITY){
         if((*arguments->content) < BAIGNOIRE_CAPACITY && fuiteColmatee == FALSE){
             (*arguments->content) -= arguments->qty;
+            if(*arguments->content < 0){
+                *arguments->content = 0;
+            }
             printf("La baignoire se vide. Contenu: %d\n", *arguments->content);
             if((*arguments->content) <= 0){
+                printf("La baignoire est complètement vide. Colmatage de la fuite.\n");
                 fuiteColmatee = TRUE;
             }
             sleep(arguments->time);
