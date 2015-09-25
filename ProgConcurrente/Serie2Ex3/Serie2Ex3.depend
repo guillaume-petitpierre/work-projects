@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1443086444 source:/home/guillaume/work-projects/ProgConcurrente/Serie2Ex3/main.c
+	<unistd.h>
+	<stdio.h>
+	<stdlib.h>
+	<errno.h>
+	<pthread.h>
+

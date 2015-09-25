@@ -1,3 +1,4 @@
+#include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
@@ -19,7 +20,7 @@ int main() {
         printf("i value: %d\n", i);
         pthread_create(&threads[i], NULL, thread, &i);
         pthread_join(threads[i], &code);
-        if ((int)code != 0) {
+        if (code != 0) {
             fprintf(stderr, "pthread_create failed!\n");
             return EXIT_FAILURE;
         }
