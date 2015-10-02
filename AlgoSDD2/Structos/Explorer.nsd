@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns:nsd="http://structorizer.fisch.lu/" text="&#34;int Explorer(T, G, D)&#34;" comment="&#34;&#34;" color="ffffff" type="program" style="nice">
+	<children>
+		<instruction text="&#34;i &#60;- G+1&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+		<instruction text="&#34;j &#60;- D&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+		<while text="&#34;Tant que i &#60; j&#34;" comment="&#34;&#34;" color="ffffff">
+			<qWhile>
+				<repeat text="&#34;Jusqu'à T[i] &#62; T[G]&#34;" comment="&#34;&#34;" color="ffffff">
+					<qRepeat>
+						<instruction text="&#34;i++&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+					</qRepeat>
+				</repeat>
+				<repeat text="&#34;Jusqu'à T[j] &#60;= T[G]&#34;" comment="&#34;&#34;" color="ffffff">
+					<qRepeat>
+						<instruction text="&#34;i--&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+					</qRepeat>
+				</repeat>
+				<alternative text="&#34;Si i &#60; j&#34;" comment="&#34;&#34;" color="ffffff">
+					<qTrue>
+						<instruction text="&#34;Echanger(T, i, j)&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+					</qTrue>
+					<qFalse>
+					</qFalse>
+				</alternative>
+			</qWhile>
+		</while>
+		<instruction text="&#34;Echanger(T, G, j)&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+		<instruction text="&#34;rendre j&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+	</children>
+</root>
